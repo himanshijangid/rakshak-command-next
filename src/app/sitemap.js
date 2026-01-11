@@ -1,23 +1,29 @@
 export default function sitemap() {
+  const baseUrl = "https://www.rakshakcommand.in";
+
   return [
     {
-      url: "https://www.rakshakcommand.in",
+      url: `${baseUrl}/`,
       lastModified: new Date(),
     },
     {
-      url: "https://www.rakshakcommand.in/about",
+      url: `${baseUrl}/about`,
       lastModified: new Date(),
     },
     {
-      url: "https://www.rakshakcommand.in/services",
+      url: `${baseUrl}/services`,
       lastModified: new Date(),
     },
     {
-      url: "https://www.rakshakcommand.in/guards",
+      url: `${baseUrl}/guards`,
       lastModified: new Date(),
     },
     {
-      url: "https://www.rakshakcommand.in/contact",
+      url: `${baseUrl}/contact`,
+      lastModified: new Date(),
+    },
+    {
+      url: `${baseUrl}/gallery`,
       lastModified: new Date(),
     },
   ];
