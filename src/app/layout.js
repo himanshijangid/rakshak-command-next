@@ -8,6 +8,7 @@ const inter = Inter({
   weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 });
+
 export const metadata = {
   title: {
     default: "Rakshak Command Security Services | Security Guards in Jaipur",
@@ -15,6 +16,7 @@ export const metadata = {
   },
   description:
     "Rakshak Command Security Services provides trained, verified and disciplined security guards in Jaipur for homes, offices, industries, events and VIP security. 24×7 protection by ex-servicemen.",
+
   keywords: [
     "security services Jaipur",
     "security guards in Jaipur",
@@ -24,7 +26,9 @@ export const metadata = {
     "event security guards",
     "VIP security services Jaipur",
   ],
+
   metadataBase: new URL("https://www.rakshakcommand.in"),
+
   openGraph: {
     title: "Rakshak Command Security Services",
     description:
@@ -42,6 +46,7 @@ export const metadata = {
     locale: "en_IN",
     type: "website",
   },
+
   twitter: {
     card: "summary_large_image",
     title: "Rakshak Command Security Services",

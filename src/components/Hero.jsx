@@ -26,7 +26,7 @@ export default function Hero() {
       4000
     );
     return () => clearInterval(t);
-  }, [desktopImages.length]);
+  }, []);
 
   /* ===== MODAL ===== */
   const [isOpen, setIsOpen] = useState(false);
@@ -87,7 +87,12 @@ export default function Hero() {
   }
 
   return (
-   <div className="relative flex flex-col h-[calc(100vh-72px)] md:h-[600px]">
+    <div className="relative flex flex-col h-[calc(100vh-72px)] md:h-[600px]">
+
+      {/* ===== SEO H1 (HIDDEN) ===== */}
+      <h1 className="sr-only">
+        Professional Security Guard Services in Jaipur | Rakshak Command
+      </h1>
 
       {/* ===== BACKGROUND SLIDER ===== */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
@@ -96,14 +101,32 @@ export default function Hero() {
           style={{ transform: `translateX(-${currentSlide * 100}%)` }}
         >
           {desktopImages.map((img, i) => (
-            <div key={i} className="hidden md:block w-full h-full flex-shrink-0 relative">
-              <Image src={img} alt="" fill className="object-cover" priority={i === 0} />
+            <div
+              key={i}
+              className="hidden md:block w-full h-full flex-shrink-0 relative"
+            >
+              <Image
+                src={img}
+                alt="Security guard services in Jaipur by Rakshak Command"
+                fill
+                className="object-cover"
+                priority={i === 0}
+              />
             </div>
           ))}
 
           {mobileImages.map((img, i) => (
-            <div key={i} className="block md:hidden w-full h-full flex-shrink-0 relative">
-              <Image src={img} alt="" fill className="object-cover" priority={i === 0} />
+            <div
+              key={i}
+              className="block md:hidden w-full h-full flex-shrink-0 relative"
+            >
+              <Image
+                src={img}
+                alt="Professional security guards in Jaipur"
+                fill
+                className="object-cover"
+                priority={i === 0}
+              />
             </div>
           ))}
         </div>
@@ -114,10 +137,10 @@ export default function Hero() {
       {/* ===== HERO CONTENT ===== */}
       <section className="flex-1 flex items-center">
         <div className="w-full max-w-6xl mx-auto px-4 pt-8 pb-12 md:pt-20 md:pb-20 text-white">
-          <h1 className="text-3xl md:text-5xl font-extrabold uppercase">
+          <p className="text-3xl md:text-5xl font-extrabold uppercase">
             Your Safety <br />
             <span className="text-yellow-400">Our Responsibility</span>
-          </h1>
+          </p>
 
           <p className="mt-5 max-w-xl text-gray-200">
             Jaipur’s No.1 Security Services — Trusted & Verified Guards 24×7
@@ -151,21 +174,51 @@ export default function Hero() {
           <div onClick={closeModal} className="absolute inset-0 bg-black/60" />
           <div className="bg-white p-6 rounded-md z-10 w-full max-w-md">
             <form onSubmit={handleSubmit} className="space-y-3">
-              <input name="name" onChange={handleChange} className="w-full border p-2" placeholder="Name" />
-              <input name="phone" onChange={handleChange} className="w-full border p-2" placeholder="Phone" />
-              <input name="email" onChange={handleChange} className="w-full border p-2" placeholder="Email" />
-              <select name="service" onChange={handleChange} className="w-full border p-2">
+
+              <input
+                name="name"
+                onChange={handleChange}
+                className="w-full border p-2 text-black bg-white placeholder-gray-500"
+                placeholder="Name"
+              />
+
+              <input
+                name="phone"
+                onChange={handleChange}
+                className="w-full border p-2 text-black bg-white placeholder-gray-500"
+                placeholder="Phone"
+              />
+
+              <input
+                name="email"
+                onChange={handleChange}
+                className="w-full border p-2 text-black bg-white placeholder-gray-500"
+                placeholder="Email"
+              />
+
+              <select
+                name="service"
+                onChange={handleChange}
+                className="w-full border p-2 text-black bg-white"
+              >
                 <option value="">Select Service</option>
                 <option>Residential</option>
                 <option>Commercial</option>
                 <option>Event</option>
                 <option>VIP</option>
               </select>
-              <textarea name="user_message" className="w-full border p-2" placeholder="Message" />
+
+              <textarea
+                name="user_message"
+                className="w-full border p-2 text-black bg-white placeholder-gray-500"
+                placeholder="Message"
+              />
+
               <button className="w-full bg-yellow-400 py-2 font-semibold">
                 {loading ? "Sending..." : "Submit"}
               </button>
-              {status && <p className="text-center">{status}</p>}
+
+              {status && <p className="text-center text-black">{status}</p>}
             </form>
           </div>
         </div>
