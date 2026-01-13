@@ -1,7 +1,14 @@
+import Gallery from "@/components/Gallery";
+
+export const metadata = {
+  title: "Gallery | Rakshak Command Security Services",
+  description:
+    "Gallery of Rakshak Command Security Services showcasing trained security guards, residential, commercial, event and VIP security operations in Jaipur.",
+};
+
 export default function GalleryPage() {
-  return (
-    <main className="min-h-screen flex items-center justify-center">
-      <h1 className="text-2xl font-bold">Gallery Coming Soon</h1>
-    </main>
-  );
+  return <Gallery />;
 }
+
+
+

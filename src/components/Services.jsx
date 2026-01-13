@@ -1,62 +1,143 @@
-import { FaHome, FaBuilding, FaUsers } from "react-icons/fa";
+import Link from "next/link";
 
-const services = [
-  {
-    icon: <FaHome className="w-12 h-12 text-yellow-400" />,
-    title: "Home Security",
-    description:
-      "We provide reliable security for your homes and gated communities. Our trained guards remain vigilant around the clock, ensuring the safety of your family and property through visitor management, gate control, and regular patrolling.",
-  },
-  {
-    icon: <FaBuilding className="w-12 h-12 text-yellow-400" />,
-    title: "Industrial Security",
-    description:
-      "We secure your offices, factories, and warehouses with disciplined and alert guards who prevent unauthorized access. We ensure 24/7 safety through CCTV monitoring, patrol checks, and customized security plans suited to your business needs.",
-  },
-  {
-    icon: <FaUsers className="w-12 h-12 text-yellow-400" />,
-    title: "Event Security",
-    description:
-      "We provide reliable security for your events and gatherings. Our trained guards remain vigilant around the clock, ensuring the safety of your guests and property through entry checks, crowd control, and regular patrolling throughout the event.",
-  },
-];
-
-const Services = () => {
-  return (
-    <section className="bg-gray-800 py-16">
-      <div className="mx-auto px-4 max-w-7xl">
-
-        {/* SECTION HEADING */}
-        <div className="mb-12 text-center">
-          <h2 className="text-3xl font-bold uppercase relative inline-block pb-2 text-white">
-            Our Services
-            <span className="absolute left-1/2 -bottom-2 -translate-x-1/2 w-10 h-1 rounded-full bg-yellow-400"></span>
-          </h2>
-        </div>
-
-        {/* SERVICES GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-black">
-          {services.map((service, index) => (
-            <div
-              key={index}
-              className="flex flex-col items-center bg-gray-50 p-8 rounded-lg shadow-lg text-center hover:shadow-xl transition"
-            >
-              <div className="mb-6">{service.icon}</div>
-
-              <h6 className="text-xl font-semibold mb-3">
-                {service.title}
-              </h6>
-
-              <p className="text-gray-700 text-justify">
-                {service.description}
-              </p>
-            </div>
-          ))}
-        </div>
-
-      </div>
-    </section>
-  );
+export const metadata = {
+  title: "Security Guard Services in Jaipur",
+  description:
+    "Rakshak Command Security Services provides trained and verified security guards in Jaipur for residential, commercial, industrial, event and VIP security services.",
 };
 
-export default Services;
+export default function ServicesPage() {
+  return (
+    <main>
+
+      {/* ===== STYLISH DARK INTRO STRIP ===== */}
+      <section className="bg-[rgb(28,28,28)] text-white py-12 md:py-14">
+
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="border-l-4 border-yellow-400 pl-6">
+            <h1 className="text-3xl md:text-4xl font-extrabold tracking-wide">
+              Security Guard Services in Jaipur
+            </h1>
+            <p className="mt-4 max-w-3xl text-gray-300 leading-relaxed">
+              Rakshak Command Security Services is a trusted private security
+              agency in Jaipur offering professional, trained and verified
+              security guards for residential, commercial, industrial, event and
+              VIP security needs.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== SERVICES BOXES SECTION ===== */}
+      <section className="bg-white py-16">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="grid md:grid-cols-3 gap-8">
+
+            <ServiceBox
+              title="Residential Security Guards"
+              text="Professional residential security guards in Jaipur for societies, apartments, villas and private homes with 24×7 protection."
+            />
+
+            <ServiceBox
+              title="Commercial & Office Security"
+              text="Reliable security guards for offices, malls, showrooms and corporate spaces to manage access control and asset safety."
+            />
+
+            <ServiceBox
+              title="Industrial Security Services"
+              text="Industrial security solutions for factories, warehouses and plants focusing on perimeter security and theft prevention."
+            />
+
+            <ServiceBox
+              title="Event Security Management"
+              text="Trained event security guards in Jaipur for weddings, corporate events and public gatherings with proper crowd control."
+            />
+
+            <ServiceBox
+              title="VIP & Personal Security"
+              text="High-level VIP and personal security services with experienced guards and ex-servicemen for high-risk individuals."
+            />
+
+            <ServiceBox
+              title="Why Choose Rakshak Command"
+              list={[
+                "Verified & trained security guards",
+                "24×7 supervision & quick response",
+                "Experienced management team",
+                "Trusted security service provider in Jaipur",
+              ]}
+            />
+
+          </div>
+        </div>
+      </section>
+
+      {/* ===== DARK CTA SECTION ===== */}
+      <section className="bg-[rgb(28,28,28)] py-14 text-white">
+        <div className="max-w-6xl mx-auto px-4 text-center">
+          <h3 className="text-2xl font-extrabold">
+            Need Professional Security Guards in Jaipur?
+          </h3>
+          <p className="mt-3 text-gray-300">
+            Contact Rakshak Command Security Services today for reliable and
+            affordable security solutions.
+          </p>
+
+          <div className="mt-6 flex justify-center gap-4 flex-wrap">
+            <Link
+              href="/contact"
+              className="px-6 py-3 bg-yellow-400 text-black font-semibold rounded-md hover:scale-105 transition"
+            >
+              Inquiry Form
+            </Link>
+
+            <a
+              href="tel:+918003001702"
+              className="px-6 py-3 border border-yellow-400 font-semibold rounded-md hover:bg-yellow-400 hover:text-black transition"
+            >
+              Call Now
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  );
+}
+
+/* ===== SERVICE BOX COMPONENT ===== */
+function ServiceBox({ title, text, list }) {
+  return (
+    <div
+      className="
+        bg-[#f9fafb]
+        border-l-4 border-yellow-400
+        rounded-xl
+        p-5
+        shadow-md
+        transition-all
+        duration-300
+        hover:-translate-y-2
+        hover:shadow-xl
+      "
+    >
+      <h2 className="text-lg font-bold text-gray-900">
+        {title}
+      </h2>
+
+      {text && (
+        <p className="mt-3 text-gray-700">
+          {text}
+        </p>
+      )}
+
+      {list && (
+        <ul className="mt-3 list-disc list-inside text-gray-700 space-y-1">
+          {list.map((item, i) => (
+            <li key={i}>{item}</li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}

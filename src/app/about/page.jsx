@@ -1,8 +1,8 @@
 import About from "@/components/About";
 export const metadata = {
-  title: "About Us",
+  title: "About Rakshak Command Security Services",
   description:
-    "Know about Rakshak Command, a security services company led by ex-servicemen providing professional security guards in Jaipur.",
+    "Learn about Rakshak Command Security Services, a Jaipur-based security company led by ex-servicemen, providing disciplined and professional security guards for homes, offices, industries and events.",
 };
 
 export default function AboutPage() {

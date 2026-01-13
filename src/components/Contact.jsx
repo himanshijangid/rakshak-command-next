@@ -4,6 +4,12 @@ import { useState } from "react";
 import Image from "next/image";
 import emailjs from "@emailjs/browser";
 
+export const metadata = {
+  title: "Contact Rakshak Command Security Services",
+  description:
+    "Send your inquiry to Rakshak Command Security Services in Jaipur for trained and professional security guards.",
+};
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -39,7 +45,6 @@ const Contact = () => {
         });
       }
     } catch (error) {
-      console.error("EmailJS Error:", error);
       setStatus("❌ Failed to send message. Please try again.");
     }
 
@@ -48,27 +53,29 @@ const Contact = () => {
 
   return (
     <section className="relative py-16">
-      {/* ===== BACKGROUND IMAGE ===== */}
+      {/* ===== DARK BACKGROUND IMAGE ===== */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <Image
           src="/images/contact-bg.jpg"
-          alt="Contact Background"
+          alt="Contact Rakshak Command Security Services"
           fill
-          className="object-cover"
-          priority={false}
+          className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-black/40"></div>
+        <div className="absolute inset-0 bg-black/70"></div>
       </div>
 
       <div className="w-full max-w-4xl mx-auto px-4">
-        {/* Heading */}
+        {/* ===== NEW HEADING ===== */}
         <div className="text-center mb-10">
-          <h2 className="text-3xl md:text-4xl uppercase font-bold text-white drop-shadow">
-            Get In Touch
-          </h2>
+          <h1 className="text-3xl md:text-4xl font-extrabold text-white">
+            Send Your Inquiry
+          </h1>
+          <p className="mt-3 text-gray-300">
+            Our team will get back to you shortly.
+          </p>
         </div>
 
-        {/* Contact Form */}
+        {/* ===== SAME LIVE FORM (UNCHANGED COLORS) ===== */}
         <div className="rounded-lg shadow-lg p-8 md:p-10 max-w-2xl mx-auto bg-white/80 backdrop-blur-sm">
           <form onSubmit={handleSubmit}>
             <div className="space-y-5">
@@ -113,12 +120,12 @@ const Contact = () => {
               />
 
               <div className="text-center">
-                <button
-                  type="submit"
-                  className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2 px-8 rounded-md transition-colors"
-                >
-                  Send Message
-                </button>
+               <button
+  type="submit"
+  className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2 px-8 rounded-md transition-colors cursor-pointer pointer-events-auto"
+>
+  Send Message
+</button>
               </div>
             </div>
           </form>

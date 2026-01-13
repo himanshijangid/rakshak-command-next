@@ -1,9 +1,10 @@
 import Guards from "@/components/Guards";
 export const metadata = {
-  title: "Our Security Guards",
+  title: "Trained Security Guards in Jaipur | Rakshak Command",
   description:
-    "Meet our trained, verified and disciplined security guards serving across Jaipur.",
+    "Hire trained and background-verified security guards in Jaipur from Rakshak Command for residential societies, offices, industries, events and VIP protection.",
 };
+
 
 export default function GuardsPage() {
   return (
