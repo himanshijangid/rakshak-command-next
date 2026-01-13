@@ -11,9 +11,13 @@ const inter = Inter({
 
 export const metadata = {
   title: {
-    default: "Rakshak Command Security Services | Security Guards in Jaipur",
-    template: "%s | Rakshak Command",
+    // ✅ BRAND FIRST – EXACT AS YOU WANT
+    default: "Rakshak Command Security Services | Security Guard Services in Jaipur",
+
+    // ✅ ALL INNER PAGES
+    template: "Rakshak Command Security Services | %s",
   },
+
   description:
     "Rakshak Command Security Services provides trained, verified and disciplined security guards in Jaipur for homes, offices, industries, events and VIP security. 24×7 protection by ex-servicemen.",
 
