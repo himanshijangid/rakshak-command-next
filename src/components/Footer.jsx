@@ -3,6 +3,8 @@ import { LuMapPin } from "react-icons/lu";
 import { FaWhatsapp, FaInstagram, FaPhoneAlt } from "react-icons/fa";
 import { FaThreads, FaFacebookF } from "react-icons/fa6";
 import { MdMail } from "react-icons/md";
+import { FaYoutube } from "react-icons/fa";
+
 
 const Footer = () => {
   return (
@@ -72,46 +74,62 @@ const Footer = () => {
             </div>
 
             {/* Social Media */}
-            <div>
-              <h5 className="text-xl font-semibold mb-4">Social Media</h5>
-              <div className="flex space-x-4">
-                <a
-                  href="https://www.facebook.com/profile.php?id=61576295347312"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-yellow-400"
-                >
-                  <FaFacebookF className="w-6 h-6" />
-                </a>
+           <div>
+  <h5 className="text-xl font-semibold mb-4">Social Media</h5>
 
-                <a
-                  href="https://wa.me/918003001702?text=Hello%20Rakshak%20Command%20Security%20Team!"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-yellow-400"
-                >
-                  <FaWhatsapp className="w-6 h-6" />
-                </a>
+  <div className="flex space-x-4">
+    <a
+      href="https://www.facebook.com/profile.php?id=61576295347312"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Rakshak Command on Facebook"
+      className="hover:text-blue-400 transition"
+    >
+      <FaFacebookF className="w-6 h-6" />
+    </a>
 
-                <a
-                  href="https://www.instagram.com/rakshakcommand/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-yellow-400"
-                >
-                  <FaInstagram className="w-6 h-6" />
-                </a>
+    <a
+      href="https://wa.me/918003001702?text=Hello%20Rakshak%20Command%20Security%20Team!"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Chat with Rakshak Command on WhatsApp"
+      className="hover:text-green-400 transition"
+    >
+      <FaWhatsapp className="w-6 h-6" />
+    </a>
 
-                <a
-                  href="https://www.threads.com/@rakshakcommand"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:opacity-80"
-                >
-                  <FaThreads className="w-6 h-6" />
-                </a>
-              </div>
-            </div>
+    <a
+      href="https://www.instagram.com/rakshakcommand/"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Rakshak Command on Instagram"
+      className="hover:text-red-400 transition"
+    >
+      <FaInstagram className="w-6 h-6" />
+    </a>
+
+    <a
+      href="https://www.threads.com/@rakshakcommand"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Rakshak Command on Threads"
+      className="hover:opacity-80% transition"
+    >
+      <FaThreads className="w-6 h-6" />
+    </a>
+
+    {/* ✅ YOUTUBE */}
+    <a
+      href="https://www.youtube.com/@rakshakcommand"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Rakshak Command on YouTube"
+      className="hover:text-red-600 transition"
+    >
+      <FaYoutube className="w-6 h-6" />
+    </a>
+  </div>
+</div>
 
           </div>
         </div>
