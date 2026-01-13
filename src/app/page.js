@@ -5,26 +5,26 @@ import Guards from "@/components/Guards";
 import Contact from "@/components/Contact";
 import ClientSection from "@/components/ClientSection";
 
-/* ================================
-   SEO METADATA – HOME PAGE
-================================ */
-export const metadata = {
-  title: "Security Guard Services in Jaipur | Rakshak Command",
-  description:
-    "Rakshak Command offers trained and verified security guards in Jaipur for homes, offices, industries, events and VIP security. 24×7 reliable protection.",
-  alternates: {
-    canonical: "https://rakshakcommand.in/",
-  },
-  openGraph: {
-    title: "Security Guard Services in Jaipur | Rakshak Command",
-    description:
-      "Hire professional security guards in Jaipur. Trusted private security agency providing 24×7 protection for residential, commercial and industrial sites.",
-    url: "https://rakshakcommand.in/",
-    siteName: "Rakshak Command Security Services",
-    locale: "en_IN",
-    type: "website",
-  },
-};
+// /* ================================
+//    SEO METADATA – HOME PAGE
+// ================================ */
+// export const metadata = {
+//   title: "Security Guard Services in Jaipur | Rakshak Command",
+//   description:
+//     "Rakshak Command offers trained and verified security guards in Jaipur for homes, offices, industries, events and VIP security. 24×7 reliable protection.",
+//   alternates: {
+//     canonical: "https://rakshakcommand.in/",
+//   },
+//   openGraph: {
+//     title: "Security Guard Services in Jaipur | Rakshak Command",
+//     description:
+//       "Hire professional security guards in Jaipur. Trusted private security agency providing 24×7 protection for residential, commercial and industrial sites.",
+//     url: "https://rakshakcommand.in/",
+//     siteName: "Rakshak Command Security Services",
+//     locale: "en_IN",
+//     type: "website",
+//   },
+// };
 
 /* ================================
    HOME PAGE COMPONENT
