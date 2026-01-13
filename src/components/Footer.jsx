@@ -120,7 +120,7 @@ const Footer = () => {
 
     {/* ✅ YOUTUBE */}
     <a
-      href="https://www.youtube.com/@rakshakcommand"
+      href="https://www.youtube.com/@RakshakCommandSecurityServices"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Rakshak Command on YouTube"
