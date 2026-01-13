@@ -39,36 +39,44 @@ const Header = () => {
     path === "/" ? pathname === "/" : pathname.startsWith(path);
 
   return (
-  <header className="bg-[rgb(28,28,28)] text-white sticky top-0 z-50">
+    <header className="bg-[rgb(28,28,28)] text-white sticky top-0 z-50">
 
-      {/* ===== TOP YELLOW BAR ===== */}
+      {/* ===== TOP YELLOW BAR (POLISHED) ===== */}
       <div className="hidden sm:block bg-yellow-400 py-2">
-        <div className="w-full px-4 sm:px-6 lg:px-8">
+        <div className="px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center text-black font-medium text-sm">
+
+            {/* LOCATION */}
             <a
               href="https://maps.app.goo.gl/gBeHbh42iuJtgXMy5"
               target="_blank"
-              className="flex items-center gap-2 hover:underline"
+              className="flex items-center gap-2 cursor-pointer no-underline
+                         transition-transform duration-300 hover:scale-110 hover:opacity-90"
             >
               <MapPin className="w-4 h-4" />
               Jaipur
             </a>
 
+            {/* PHONE */}
             <a
               href="tel:+918003001702"
-              className="flex items-center gap-2 hover:underline"
+              className="flex items-center gap-2 cursor-pointer no-underline
+                         transition-transform duration-300 hover:scale-110 hover:opacity-90"
             >
               <Phone className="w-4 h-4" />
               +91 8003001702
             </a>
 
+            {/* EMAIL */}
             <a
               href="mailto:rakshakcommand@gmail.com"
-              className="flex items-center gap-2 hover:underline"
+              className="flex items-center gap-2 cursor-pointer no-underline
+                         transition-transform duration-300 hover:scale-110 hover:opacity-90"
             >
               <Mail className="w-4 h-4" />
               rakshakcommand@gmail.com
             </a>
+
           </div>
         </div>
       </div>
@@ -77,22 +85,24 @@ const Header = () => {
       <div className="shadow-md">
         <div className="px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
+
             {/* LOGO */}
-   <Link
-  href="/"
-  className="flex items-center gap-2 relative z-[60] cursor-pointer"
->
-  <Image
-    src="/images/logo.png"
-    alt="Rakshak Command"
-    width={60}
-    height={60}
-    priority
-  />
-  <span className="font-bold text-lg md:text-xl">
-    RAKSHAK COMMAND
-  </span>
-</Link>
+            <Link
+              href="/"
+              className="flex items-center gap-2 relative z-[60] cursor-pointer"
+            >
+              <Image
+                src="/images/logo.png"
+                alt="Rakshak Command Security Services"
+                width={60}
+                height={60}
+                priority
+              />
+              <span className="font-bold text-lg md:text-xl">
+                RAKSHAK COMMAND
+              </span>
+            </Link>
+
             {/* DESKTOP NAV */}
             <nav className="hidden md:block">
               <ul className="flex items-center gap-6">
@@ -115,11 +125,11 @@ const Header = () => {
               </ul>
             </nav>
 
-            {/* MOBILE BUTTON */}
-          <button
-  onClick={() => setIsSidebarOpen(true)}
-  className="md:hidden text-yellow-400 relative z-[40]"
->
+            {/* MOBILE MENU BUTTON */}
+            <button
+              onClick={() => setIsSidebarOpen(true)}
+              className="md:hidden text-yellow-400 relative z-[40]"
+            >
               <Menu />
             </button>
           </div>
