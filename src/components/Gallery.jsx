@@ -65,23 +65,24 @@ export default function Gallery() {
   return (
     <>
       {/* ================= GALLERY GRID ================= */}
-      <section className="py-14 bg-white">
+      <section className="py-16 bg-[#eef3f9]">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
             {galleryImages.map((src, index) => (
               <div
                 key={index}
                 onClick={() => setActiveIndex(index)}
-                className="cursor-pointer relative overflow-hidden rounded-xl 
-                           shadow-md hover:shadow-xl transition-all duration-500"
+                className="cursor-pointer group bg-white rounded-2xl 
+                           shadow-md hover:shadow-xl transition-all duration-300"
               >
-                {/* Reduced height – portrait safe */}
-                <div className="relative w-full h-[300px] sm:h-[360px] md:h-[480px]">
+                <div className="relative w-full aspect-[4/5] overflow-hidden rounded-2xl bg-[#e2e8f0]">
                   <Image
                     src={src}
                     alt={altText[index]}
                     fill
-                    className="object-cover transition-transform duration-700 hover:scale-105"
+                    sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw"
+                    className="object-contain transition-transform duration-500 
+                               group-hover:scale-105"
                   />
                 </div>
               </div>
@@ -93,7 +94,7 @@ export default function Gallery() {
       {/* ================= LIGHTBOX ================= */}
       {activeIndex !== null && (
         <div
-          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center"
+          className="fixed inset-0 z-50 bg-black/95 flex flex-col"
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
         >
@@ -102,46 +103,62 @@ export default function Gallery() {
             onClick={closeModal}
             className="absolute top-4 right-4 text-white z-50"
           >
-            <X size={30} />
+            <X size={32} />
           </button>
 
-          {/* Image Container */}
-          <div
-            className="relative w-[92vw] md:w-[70vw] h-[78vh] 
-                       flex items-center justify-center overflow-hidden"
-          >
+          {/* Main Image */}
+          <div className="relative flex-1 flex items-center justify-center">
             <Image
               src={galleryImages[activeIndex]}
               alt={altText[activeIndex]}
               fill
               priority
-              className="object-contain transition-transform duration-500"
+              className="object-contain"
             />
 
-            {/* Prev Button (inside image) */}
+            {/* Prev */}
             <button
               onClick={prevImage}
-              className="absolute left-3 top-1/2 -translate-y-1/2 
-                         bg-black/50 hover:bg-black/70 text-white 
-                         rounded-full p-2"
+              className="absolute left-4 top-1/2 -translate-y-1/2 
+                         bg-black/60 hover:bg-black/80 text-white 
+                         rounded-full p-3"
             >
-              <ChevronLeft size={26} />
+              <ChevronLeft size={28} />
             </button>
 
-            {/* Next Button (inside image) */}
+            {/* Next */}
             <button
               onClick={nextImage}
-              className="absolute right-3 top-1/2 -translate-y-1/2 
-                         bg-black/50 hover:bg-black/70 text-white 
-                         rounded-full p-2"
+              className="absolute right-4 top-1/2 -translate-y-1/2 
+                         bg-black/60 hover:bg-black/80 text-white 
+                         rounded-full p-3"
             >
-              <ChevronRight size={26} />
+              <ChevronRight size={28} />
             </button>
+          </div>
 
-            {/* Image Counter */}
-            <div className="absolute bottom-3 right-4 text-white text-sm 
-                            bg-black/50 px-3 py-1 rounded">
-              {activeIndex + 1} / {galleryImages.length}
+          {/* ================= THUMBNAILS BOTTOM ================= */}
+          <div className="bg-black/90 px-4 py-3 overflow-x-auto">
+            <div className="flex gap-3 justify-center">
+              {galleryImages.map((img, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setActiveIndex(idx)}
+                  className={`relative h-20 w-16 flex-shrink-0 rounded-md overflow-hidden 
+                    border-2 transition-all ${
+                      idx === activeIndex
+                        ? "border-yellow-400 scale-105"
+                        : "border-transparent opacity-60 hover:opacity-100"
+                    }`}
+                >
+                  <Image
+                    src={img}
+                    alt={`Thumbnail ${idx + 1}`}
+                    fill
+                    className="object-cover"
+                  />
+                </button>
+              ))}
             </div>
           </div>
         </div>
