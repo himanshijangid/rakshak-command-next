@@ -29,6 +29,10 @@ const Guards = () => {
           <h2 className="text-3xl md:text-4xl font-extrabold uppercase text-gray-900 tracking-wide">
             Our Professional Security Guards
           </h2>
+           {/* Yellow Line – Same Position for All */}
+      <div className="w-20 h-[3px] bg-yellow-400 mx-auto my-4 rounded-full" />
+
+
           <p className="mt-4 text-gray-600 max-w-5xl mx-auto leading-relaxed">
             At Rakshak Command Security Services, our security guards are the
             backbone of our commitment to safety. Every guard is background
