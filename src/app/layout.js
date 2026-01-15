@@ -31,8 +31,15 @@ export const metadata = {
     "VIP security services Jaipur",
   ],
 
+  // ✅ BASE DOMAIN
   metadataBase: new URL("https://www.rakshakcommand.in"),
 
+  // ✅ CANONICAL FIX (IMPORTANT FOR SEO)
+  alternates: {
+    canonical: "https://www.rakshakcommand.in",
+  },
+
+  // ✅ OPEN GRAPH
   openGraph: {
     title: "Rakshak Command Security Services",
     description:
@@ -51,6 +58,7 @@ export const metadata = {
     type: "website",
   },
 
+  // ✅ TWITTER META
   twitter: {
     card: "summary_large_image",
     title: "Rakshak Command Security Services",
