@@ -4,6 +4,8 @@ import Services from "@/components/Services";
 import Guards from "@/components/Guards";
 import Contact from "@/components/Contact";
 import ClientSection from "@/components/ClientSection";
+import GalleryFolders from "@/components/GalleryFolders";
+
 
 export const metadata = {
   title: "Rakshak Command Security Services | Security Guards in Jaipur",
@@ -31,6 +33,9 @@ export default function Home() {
 
       {/* CONTACT / INQUIRY SECTION */}
       <Contact />
+
+      <GalleryFolders />
+
 
       {/* CLIENT / TRUST SECTION */}
       <ClientSection />
