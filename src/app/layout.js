@@ -1,6 +1,5 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
-import Script from "next/script";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -66,29 +65,94 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <head>
-        {/* ✅ Google Analytics */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-6CB0R515JB"
-          strategy="afterInteractive"
+      <body className={inter.className}>
+
+        {/* ===== SEO SCHEMA MARKUP ===== */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              "@id": "https://www.rakshakcommand.in/#business",
+              "name": "Rakshak Command Security Services",
+              "url": "https://www.rakshakcommand.in",
+              "logo": "https://www.rakshakcommand.in/images/logo.png",
+              "image": "https://www.rakshakcommand.in/images/og-image.jpg",
+              "telephone": "+91-8003001702",
+              "priceRange": "₹₹",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress":
+                  "Plot no. 1,2 Narayan Dham 3rd, Rani Colony, Niwaru Road, Jhotwara",
+                "addressLocality": "Jaipur",
+                "addressRegion": "Rajasthan",
+                "postalCode": "302012",
+                "addressCountry": "IN",
+              },
+              "areaServed": {
+                "@type": "Place",
+                "name": "Jaipur and Nearby Areas",
+              },
+              "sameAs": [
+                "https://www.instagram.com/",
+                "https://www.facebook.com/",
+              ],
+              "makesOffer": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name":
+                      "Residential Security Guard Services in Jaipur",
+                    "areaServed": "Jaipur",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name":
+                      "Commercial Security Services in Jaipur",
+                    "areaServed": "Jaipur",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name":
+                      "Industrial Security Services in Jaipur",
+                    "areaServed": "Jaipur",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name":
+                      "Event Security Services in Jaipur",
+                    "areaServed": "Jaipur",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name":
+                      "VIP & Personal Security Services in Jaipur",
+                    "areaServed": "Jaipur",
+                  },
+                },
+              ],
+            }),
+          }}
         />
 
-        <Script strategy="afterInteractive" id="ga-script">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-6CB0R515JB', {
-              page_path: window.location.pathname,
-            });
-          `}
-        </Script>
-      </head>
-
-      <body className={inter.className}>
         <Header />
         {children}
         <Footer />
+
       </body>
     </html>
   );

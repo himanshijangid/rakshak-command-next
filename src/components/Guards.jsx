@@ -5,16 +5,19 @@ const guardData = [
   {
     title: "Residential Security Team",
     image: "/images/res01.jpg",
+    alt: "Residential security guards in Jaipur protecting homes and societies",
     desc: "Trained residential security guards ensuring safety for homes, apartments and societies in Jaipur.",
   },
   {
     title: "Commercial Security Team",
     image: "/images/com01.jpg",
+    alt: "Commercial security guards for offices, malls and corporate buildings in Jaipur",
     desc: "Professional security guards for offices, malls and corporate spaces with strict access control.",
   },
   {
     title: "Event Security Team",
     image: "/images/eve01.jpg",
+    alt: "Event security guards for crowd control and safety management in Jaipur",
     desc: "Experienced event security personnel for crowd management, entry control and on-ground safety.",
   },
 ];
@@ -29,9 +32,9 @@ const Guards = () => {
           <h2 className="text-3xl md:text-4xl font-extrabold uppercase text-gray-900 tracking-wide">
             Our Professional Security Guards
           </h2>
-           {/* Yellow Line – Same Position for All */}
-      <div className="w-20 h-[3px] bg-yellow-400 mx-auto my-4 rounded-full" />
 
+          {/* Yellow Line */}
+          <div className="w-20 h-[3px] bg-yellow-400 mx-auto my-4 rounded-full" />
 
           <p className="mt-4 text-gray-600 max-w-5xl mx-auto leading-relaxed">
             At Rakshak Command Security Services, our security guards are the
@@ -42,7 +45,7 @@ const Guards = () => {
         </div>
 
         {/* ===== GUARDS GRID ===== */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
           {guardData.map((guard, i) => (
             <div
               key={i}
@@ -52,7 +55,7 @@ const Guards = () => {
                 bg-white
                 rounded-2xl
                 overflow-hidden
-              cursor-pointer
+                cursor-pointer
                 shadow-lg
                 shadow-yellow-400/20
                 transition-all
@@ -63,11 +66,12 @@ const Guards = () => {
               "
             >
               {/* IMAGE */}
-              <div className="relative w-full h-[260px] md:h-[320px] overflow-hidden">
+              <div className="relative w-full h-[240px] sm:h-[260px] md:h-[320px] overflow-hidden">
                 <Image
                   src={guard.image}
-                  alt={guard.title}
+                  alt={guard.alt}
                   fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="
                     object-cover object-center
                     transition-transform duration-500

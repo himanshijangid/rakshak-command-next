@@ -21,12 +21,12 @@ export default function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
-    const t = setInterval(
-      () => setCurrentSlide((i) => (i + 1) % desktopImages.length),
-      4000
-    );
+    const t = setInterval(() => {
+      setCurrentSlide((i) => (i + 1) % desktopImages.length);
+    }, 4000);
+
     return () => clearInterval(t);
-  }, []);
+  }, [desktopImages.length]);
 
   /* ===== MODAL ===== */
   const [isOpen, setIsOpen] = useState(false);
@@ -94,43 +94,52 @@ export default function Hero() {
         Professional Security Guard Services in Jaipur | Rakshak Command
       </h1>
 
-      {/* ===== BACKGROUND SLIDER ===== */}
+      {/* ===== BACKGROUND SLIDER (OPTIMIZED) ===== */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
-        <div
-          className="flex h-full transition-transform duration-1000"
-          style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-        >
-          {desktopImages.map((img, i) => (
-            <div
-              key={i}
-              className="hidden md:block w-full h-full flex-shrink-0 relative"
-            >
-              <Image
-                src={img}
-                alt="Security guard services in Jaipur by Rakshak Command"
-                fill
-                className="object-cover"
-                priority={i === 0}
-              />
-            </div>
-          ))}
 
-          {mobileImages.map((img, i) => (
-            <div
-              key={i}
-              className="block md:hidden w-full h-full flex-shrink-0 relative"
-            >
-              <Image
-                src={img}
-                alt="Professional security guards in Jaipur"
-                fill
-                className="object-cover"
-                priority={i === 0}
-              />
-            </div>
-          ))}
+        {/* DESKTOP SLIDER */}
+        <div className="hidden md:block h-full">
+          <div
+            className="flex h-full transition-transform duration-1000"
+            style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+          >
+            {desktopImages.map((img, i) => (
+              <div key={i} className="w-full h-full flex-shrink-0 relative">
+                <Image
+                  src={img}
+                  alt="Security guard services in Jaipur by Rakshak Command"
+                  fill
+                  sizes="100vw"
+                  className="object-cover"
+                  priority={i === 0}
+                />
+              </div>
+            ))}
+          </div>
         </div>
 
+        {/* MOBILE SLIDER */}
+        <div className="block md:hidden h-full">
+          <div
+            className="flex h-full transition-transform duration-1000"
+            style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+          >
+            {mobileImages.map((img, i) => (
+              <div key={i} className="w-full h-full flex-shrink-0 relative">
+                <Image
+                  src={img}
+                  alt="Professional security guards in Jaipur"
+                  fill
+                  sizes="100vw"
+                  className="object-cover"
+                  priority={i === 0}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* OVERLAY */}
         <div className="absolute inset-0 bg-black/60" />
       </div>
 
@@ -228,6 +237,7 @@ export default function Hero() {
 }
 
 /* ================= LIVE TICKER ================= */
+
 function LiveTicker() {
   const badges = [
     { text: "HIRING", cls: "hiring" },
@@ -263,7 +273,10 @@ function LiveTicker() {
 
   return (
     <div className="relative bg-yellow-400 overflow-hidden py-2">
-      <div className="ticker-track flex w-max" style={{ animation: "slideRTL 25s linear infinite" }}>
+      <div
+        className="ticker-track flex w-max"
+        style={{ animation: "slideRTL 25s linear infinite" }}
+      >
         <TickerRow badges={badges} index={index} time={time} />
         <TickerRow badges={badges} index={index} time={time} />
       </div>
@@ -292,13 +305,21 @@ function LiveTicker() {
 function TickerRow({ badges, index, time }) {
   return (
     <div className="flex items-center">
-      <span className={`mx-3 px-4 py-1 text-xs font-extrabold rounded-full text-white badge ${badges[index].cls}`}>
+      <span
+        className={`mx-3 px-4 py-1 text-xs font-extrabold rounded-full text-white badge ${badges[index].cls}`}
+      >
         {badges[index].text}
       </span>
       <p className="mx-6 font-semibold text-black">🕒 {time}</p>
-      <p className="mx-6 font-bold text-black">WE ARE HIRING SECURITY GUARDS – JAIPUR</p>
-      <p className="mx-6 font-bold text-black">📞 CONTACT: +91-8003001702</p>
-      <p className="mx-6 font-bold text-black">🛡️ PROFESSIONAL SECURITY SERVICES 24×7</p>
+      <p className="mx-6 font-bold text-black">
+        WE ARE HIRING SECURITY GUARDS – JAIPUR
+      </p>
+      <p className="mx-6 font-bold text-black">
+        📞 CONTACT: +91-8003001702
+      </p>
+      <p className="mx-6 font-bold text-black">
+        🛡️ PROFESSIONAL SECURITY SERVICES 24×7
+      </p>
     </div>
   );
 }

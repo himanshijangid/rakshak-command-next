@@ -8,16 +8,19 @@ const folders = [
     name: "Security Guards",
     link: "/gallery/guards",
     cover: "/images/gallery/guards/g1.jpg",
+    alt: "Security guards on duty in Jaipur by Rakshak Command",
   },
   {
     name: "Bouncers",
     link: "/gallery/bouncers",
     cover: "/images/gallery/bouncers/b1.jpg",
+    alt: "Professional bouncers providing event and crowd security services",
   },
   {
     name: "Door Man",
     link: "/gallery/doorman",
     cover: "/images/gallery/doorman/d1.jpg",
+    alt: "Doorman and access control security staff in Jaipur",
   },
 ];
 
@@ -35,8 +38,8 @@ export default function GalleryFolders() {
           {/* Yellow underline */}
           <div className="mx-auto mt-3 h-[3px] w-20 bg-yellow-400 rounded-full" />
 
-          <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
-            Explore our professional security guards, bouncers and doorman delivering safety with discipline and dedication.
+          <p className="mt-4 text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            Explore our professional security guards, bouncers and doorman delivering safety with discipline and dedication across Jaipur.
           </p>
         </div>
 
@@ -46,34 +49,36 @@ export default function GalleryFolders() {
             <Link
               key={index}
               href={folder.link}
-              className="group relative block overflow-hidden rounded-2xl 
-                         shadow-xl cursor-pointer"
+              aria-label={`View ${folder.name} gallery`}
+              className="group relative block overflow-hidden rounded-2xl shadow-xl cursor-pointer focus:outline-none focus:ring-2 focus:ring-yellow-400"
             >
               {/* Image */}
               <div className="relative aspect-[4/5]">
                 <Image
                   src={folder.cover}
-                  alt={`${folder.name} services by Rakshak Command`}
+                  alt={folder.alt}
                   fill
-                  className="object-cover transition-transform duration-700 
-                             group-hover:scale-110"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
               </div>
 
               {/* Bottom Strip */}
               <div
-                className="absolute bottom-0 left-0 right-0 
-                           bg-[rgb(28,28,28)]/95
-                           text-white text-lg font-semibold
-                           text-center py-4 tracking-wide
-                           transition-all duration-500
-                           group-hover:bg-[rgb(28,28,28)]"
+                className="
+                  absolute bottom-0 left-0 right-0
+                  bg-[rgb(28,28,28)]/95
+                  text-white text-lg font-semibold
+                  text-center py-4 tracking-wide
+                  transition-all duration-500
+                  group-hover:bg-[rgb(28,28,28)]
+                "
               >
                 {folder.name}
               </div>
 
               {/* Soft Overlay */}
-              <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition" />
+              <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition pointer-events-none" />
             </Link>
           ))}
         </div>

@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
-export default function GalleryViewer({ images }) {
+export default function GalleryViewer({ images = [] }) {
   const [activeIndex, setActiveIndex] = useState(null);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
@@ -44,62 +44,75 @@ export default function GalleryViewer({ images }) {
 
   return (
     <>
-      {/* GRID */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+      {/* ===== GRID (LAZY LOAD OPTIMIZED) ===== */}
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-5">
         {images.map((img, index) => (
-          <div
+          <button
             key={index}
             onClick={() => setActiveIndex(index)}
+            aria-label={`Open image ${index + 1}`}
             className="cursor-pointer bg-white rounded-2xl shadow-md 
-                       hover:shadow-xl transition overflow-hidden"
+                       hover:shadow-xl transition overflow-hidden focus:outline-none"
           >
-            <div className="relative aspect-[4/5] bg-[#e2e8f0]">
+            <div className="relative aspect-[4/5] bg-[#e5e7eb]">
               <Image
                 src={img.src}
-                alt={img.alt}
+                alt={img.alt || "Rakshak Command gallery image"}
                 fill
-                className="object-contain"
+                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                className="object-cover transition-transform duration-500 hover:scale-105"
+                loading={index < 2 ? "eager" : "lazy"}   // first 2 fast load
+                placeholder="blur"
+                blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDMwMCA0MDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSI0MDAiIGZpbGw9IiNlNWU3ZWIiIC8+PC9zdmc+"
               />
             </div>
-          </div>
+          </button>
         ))}
       </div>
 
-      {/* LIGHTBOX */}
+      {/* ===== LIGHTBOX VIEWER ===== */}
       {activeIndex !== null && (
         <div
           className="fixed inset-0 z-50 bg-black/95 flex flex-col"
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
         >
+          {/* Close Button */}
           <button
-  onClick={closeModal}
-  className="absolute top-4 right-4 z-[9999] 
-             bg-black/60 hover:bg-black/80 
-             text-white rounded-full p-2 cursor-pointer"
->
-  <X size={28} />
-</button>
+            onClick={closeModal}
+            aria-label="Close image viewer"
+            className="absolute top-4 right-4 z-[9999] 
+                       bg-black/70 hover:bg-black/90 
+                       text-white rounded-full p-2 cursor-pointer"
+          >
+            <X size={28} />
+          </button>
 
-
+          {/* Main Image */}
           <div className="relative flex-1 flex items-center justify-center">
             <Image
               src={images[activeIndex].src}
               alt={images[activeIndex].alt}
               fill
+              sizes="100vw"
+              priority
               className="object-contain"
             />
 
+            {/* Prev */}
             <button
               onClick={prevImage}
+              aria-label="Previous image"
               className="absolute left-4 top-1/2 -translate-y-1/2 
                          bg-black/60 text-white rounded-full p-3"
             >
               <ChevronLeft size={28} />
             </button>
 
+            {/* Next */}
             <button
               onClick={nextImage}
+              aria-label="Next image"
               className="absolute right-4 top-1/2 -translate-y-1/2 
                          bg-black/60 text-white rounded-full p-3"
             >
@@ -120,7 +133,14 @@ export default function GalleryViewer({ images }) {
                       : "border-transparent opacity-60"
                   }`}
                 >
-                  <Image src={img.src} alt={img.alt} fill className="object-cover" />
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    fill
+                    sizes="80px"
+                    loading="lazy"
+                    className="object-cover"
+                  />
                 </button>
               ))}
             </div>
