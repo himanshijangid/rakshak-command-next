@@ -5,6 +5,7 @@ import Guards from "@/components/Guards";
 import Contact from "@/components/Contact";
 import ClientSection from "@/components/ClientSection";
 import GalleryFolders from "@/components/GalleryFolders";
+import VisitorCounter from "@/components/VisitorCounter";
 
 
 export const metadata = {
@@ -39,6 +40,12 @@ export default function Home() {
 
       {/* CLIENT / TRUST SECTION */}
       <ClientSection />
+
+      
+      {/* VISITOR COUNTER */}
+      <VisitorCounter />
+
+
     </main>
   );
 }
