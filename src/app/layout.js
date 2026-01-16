@@ -12,10 +12,8 @@ const inter = Inter({
 
 export const metadata = {
   title: {
-    // ✅ BRAND FIRST – EXACT AS YOU WANT
-    default: "Rakshak Command Security Services | Security Guard Services in Jaipur",
-
-    // ✅ ALL INNER PAGES
+    default:
+      "Rakshak Command Security Services | Security Guard Services in Jaipur",
     template: "Rakshak Command Security Services | %s",
   },
 
@@ -32,15 +30,12 @@ export const metadata = {
     "VIP security services Jaipur",
   ],
 
-  // ✅ BASE DOMAIN
   metadataBase: new URL("https://www.rakshakcommand.in"),
 
-  // ✅ CANONICAL FIX (IMPORTANT FOR SEO)
   alternates: {
     canonical: "https://www.rakshakcommand.in",
   },
 
-  // ✅ OPEN GRAPH
   openGraph: {
     title: "Rakshak Command Security Services",
     description:
@@ -59,7 +54,6 @@ export const metadata = {
     type: "website",
   },
 
-  // ✅ TWITTER META
   twitter: {
     card: "summary_large_image",
     title: "Rakshak Command Security Services",
@@ -75,16 +69,18 @@ export default function RootLayout({ children }) {
       <head>
         {/* ✅ Google Analytics */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-K8554W2S6Y"
+          src="https://www.googletagmanager.com/gtag/js?id=G-6CB0R515JB"
           strategy="afterInteractive"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+
+        <Script strategy="afterInteractive" id="ga-script">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-6CB0R515JB
-');
+            gtag('config', 'G-6CB0R515JB', {
+              page_path: window.location.pathname,
+            });
           `}
         </Script>
       </head>
