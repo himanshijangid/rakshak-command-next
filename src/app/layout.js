@@ -72,26 +72,35 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "SecurityService",
+              "@type": ["LocalBusiness", "Organization"],
               name: "Rakshak Command Security Services",
               url: "https://www.rakshakcommand.in",
               logo: "https://www.rakshakcommand.in/images/logo.png",
               image: "https://www.rakshakcommand.in/images/og-image.jpg",
               telephone: "+91-8003001702",
+              priceRange: "₹₹",
               address: {
                 "@type": "PostalAddress",
                 streetAddress:
-                  "Plot No. 1,2  Narayan Dham 3rd, Rani Colony, Niwaru Road Jhotwara",
+                  "Plot No. 1,2 Narayan Dham 3rd, Rani Colony, Niwaru Road Jhotwara",
                 addressLocality: "Jaipur",
                 addressRegion: "Rajasthan",
                 postalCode: "302012",
                 addressCountry: "IN",
               },
-              areaServed: "Jaipur",
-              priceRange: "₹₹",
+              areaServed: {
+                "@type": "City",
+                name: "Jaipur",
+              },
+              geo: {
+                "@type": "GeoCoordinates",
+                latitude: "26.9124",
+                longitude: "75.7873",
+              },
               sameAs: [
-                "https://www.instagram.com/",
-                "https://www.facebook.com/",
+                "https://www.facebook.com/profile.php?id=61576295347312",
+                "https://www.instagram.com/rakshakcommand/",
+                "https://www.youtube.com/@RakshakCommandSecurityServices",
               ],
             }),
           }}
@@ -100,7 +109,7 @@ export default function RootLayout({ children }) {
 
       <body className={inter.className}>
         <Header />
-        {children}
+        <main>{children}</main>
         <Footer />
       </body>
     </html>
