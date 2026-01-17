@@ -42,8 +42,8 @@ export default function Home() {
       <ClientSection />
 
       
-      {/* VISITOR COUNTER */}
-      <VisitorCounter />
+      {/* VISITOR COUNTER
+      <VisitorCounter /> */}
 
 
     </main>
