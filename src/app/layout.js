@@ -10,6 +10,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        <link rel="canonical" href="https://www.rakshakcommand.in/" />
         {/* ✅ Business Schema */}
         <script
           type="application/ld+json"
