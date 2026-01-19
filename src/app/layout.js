@@ -35,6 +35,13 @@ export const metadata = {
     canonical: "https://www.rakshakcommand.in",
   },
 
+  // ✅ FAVICON CONFIG
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
+
+  // ✅ OPEN GRAPH
   openGraph: {
     title: "Rakshak Command Security Services",
     description:
@@ -53,6 +60,7 @@ export const metadata = {
     type: "website",
   },
 
+  // ✅ TWITTER CARD
   twitter: {
     card: "summary_large_image",
     title: "Rakshak Command Security Services",
@@ -67,45 +75,44 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         {/* ✅ Local Business Schema */}
-       <script
-  type="application/ld+json"
-  dangerouslySetInnerHTML={{
-    __html: JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": ["LocalBusiness", "Organization"],
-      name: "Rakshak Command Security Services",
-      url: "https://www.rakshakcommand.in",
-      logo: "https://www.rakshakcommand.in/images/logo.png",
-      image: "https://www.rakshakcommand.in/images/og-image.jpg",
-      telephone: "+91-8003001702",
-      priceRange: "₹₹",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress:
-          "Plot No. 1,2 Narayan Dham 3rd, Rani Colony, Niwaru Road Jhotwara",
-        addressLocality: "Jaipur",
-        addressRegion: "Rajasthan",
-        postalCode: "302012",
-        addressCountry: "IN",
-      },
-      areaServed: {
-        "@type": "City",
-        name: "Jaipur",
-      },
-      geo: {
-        "@type": "GeoCoordinates",
-        latitude: "26.9124",
-        longitude: "75.7873",
-      },
-      sameAs: [
-        "https://www.facebook.com/profile.php?id=61576295347312",
-        "https://www.instagram.com/rakshakcommand/",
-        "https://www.youtube.com/@RakshakCommandSecurityServices",
-      ],
-    }),
-  }}
-/>
-
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": ["LocalBusiness", "Organization"],
+              name: "Rakshak Command Security Services",
+              url: "https://www.rakshakcommand.in",
+              logo: "https://www.rakshakcommand.in/images/logo.png",
+              image: "https://www.rakshakcommand.in/images/og-image.jpg",
+              telephone: "+91-8003001702",
+              priceRange: "₹₹",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress:
+                  "Plot No. 1,2 Narayan Dham 3rd, Rani Colony, Niwaru Road Jhotwara",
+                addressLocality: "Jaipur",
+                addressRegion: "Rajasthan",
+                postalCode: "302012",
+                addressCountry: "IN",
+              },
+              areaServed: {
+                "@type": "City",
+                name: "Jaipur",
+              },
+              geo: {
+                "@type": "GeoCoordinates",
+                latitude: "26.9124",
+                longitude: "75.7873",
+              },
+              sameAs: [
+                "https://www.facebook.com/profile.php?id=61576295347312",
+                "https://www.instagram.com/rakshakcommand/",
+                "https://www.youtube.com/@RakshakCommandSecurityServices",
+              ],
+            }),
+          }}
+        />
       </head>
 
       <body className={inter.className}>
