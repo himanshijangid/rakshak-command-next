@@ -1,9 +1,13 @@
 import Services from "@/components/Services";
 
 export const metadata = {
-  title: "Security Services in Jaipur | Rakshak Command",
+  title: "Security Guard Services in Jaipur | Rakshak Command",
   description:
-    "Rakshak Command offers professional security services in Jaipur including residential, commercial, industrial, event and VIP security with trained and verified guards.",
+    "Professional security guard services in Jaipur for homes, offices, industries, events and VIP protection. Trusted & verified guards by Rakshak Command.",
+  robots: "index, follow",
+  alternates: {
+    canonical: "https://rakshakcommand.in/services",
+  },
 };
 
 export default function ServicesPage() {

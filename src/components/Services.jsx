@@ -1,11 +1,5 @@
 import Link from "next/link";
 
-export const metadata = {
-  title: "Security Guard Services in Jaipur | Rakshak Command",
-  description:
-    "Rakshak Command Security Services provides trained and verified security guards in Jaipur for residential, commercial, industrial, event and VIP security services.",
-};
-
 export default function ServicesPage() {
   return (
     <main>
